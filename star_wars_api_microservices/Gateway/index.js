@@ -1,27 +1,25 @@
-import express from "express";
-import morgan from "morgan";
+import app from "./src/server.js";
+import "dotenv/config";
 import { createProxyMiddleware } from "http-proxy-middleware"
 
-const app = express();
+const { PORT } = process.env;
 
-app.use(morgan("dev"));
+app.listen(PORT, () => {
+  console.log(`Listen on port ${PORT} of gateway`);
+});
 
 app.use("/characters", createProxyMiddleware({
-    target: "http://localhost:8001",
+    target: "http://characters:8001",
     changeOrigin: true,
   })
 );
 
 app.use("/films", createProxyMiddleware({
-  target: "http://localhost:8002",
+  target: "http://films:8002",
   changeOrigin: true,
 }))
 
 app.use("/planets", createProxyMiddleware({
-  target: "http://localhost:8003",
+  target: "http://planets:8003",
   changeOrigin: true,
 }))
-
-app.listen(8000, () => {
-    console.log("Listen on port 8000 of Gateway")
-})
