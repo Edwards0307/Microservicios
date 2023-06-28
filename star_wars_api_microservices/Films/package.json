@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node-dev index.js",
     "start": "node index.js"
   },
   "keywords": [],
@@ -16,6 +17,6 @@
   },
   "devDependencies": {
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22"
+    "node-dev": "^8.0.0"
   }
 }

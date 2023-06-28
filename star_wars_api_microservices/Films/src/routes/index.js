@@ -3,8 +3,8 @@ import controllers from "../controllers/index.js"
 
 const router = Router();
 
-router.get("/", controllers.getFilms);
+router.get("/films", controllers.getFilms);
 
-router.post("/", controllers.postFilms);
+router.post("/films", controllers.postFilms);
 
 export default router;
