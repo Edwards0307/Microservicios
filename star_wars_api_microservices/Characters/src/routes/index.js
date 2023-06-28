@@ -3,8 +3,8 @@ import controllers from "../controllers/index.js";
 
 const router = Router();
 
-router.get("/", controllers.getCharacters)
+router.get("/characters", controllers.getCharacters)
 
-router.post("/", controllers.postCharacters)
+router.post("/characters", controllers.postCharacters)
 
 export default router;
