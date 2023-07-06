@@ -11,7 +11,7 @@ const characterSchemas = new Schema({
   birth_year: String,
   gender: String,
   homeworld: { type: String, ref: "Planet" },
-  films: { type: String, ref: "Films" },
+  films: [{ type: String, ref: "Films" }],
 });
 
 export default characterSchemas
