@@ -6,10 +6,6 @@ import planetSchemas from "./schemas/planetSchemas.js";
 
 const conn = mongoose.createConnection(MONGO_URI);
 
-const Characters = conn.model("Character", characterSchemas);
-const Films = conn.model("Films", filmSchemas);
-const Planets = conn.model("Planets", planetSchemas);
-
-Characters.find()
-  .populate("films", ["_id", "title"])
-  .then((res) => console.log(res[0]));
+export const Characters = conn.model("Character", characterSchemas);
+export const Films = conn.model("Films", filmSchemas);
+export const Planets = conn.model("Planets", planetSchemas);

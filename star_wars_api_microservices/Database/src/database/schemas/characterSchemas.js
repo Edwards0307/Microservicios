@@ -10,8 +10,24 @@ const characterSchemas = new Schema({
   eye_color: String,
   birth_year: String,
   gender: String,
-  homeworld: { type: String, ref: "Planet" },
+  homeworld: { type: String, ref: "Planets" },
   films: [{ type: String, ref: "Films" }],
 });
 
-export default characterSchemas
+characterSchemas.statics.list = async function () {
+  return await this.find()
+    .populate("homeworld", ["_id", "name"])
+    .populate("films", ["_id", "title"]);
+};
+
+characterSchemas.statics.get = async function (id) {
+  return await this.findById(id)
+    .populate("homeworld", ["_id", "name"])
+    .populate("films", ["_id", "title"]);
+};
+
+characterSchemas.statics.insert = async function (character) {
+  return await this.create(character)
+}
+
+export default characterSchemas;
