@@ -6,6 +6,10 @@ import planetSchemas from "./schemas/planetSchemas.js";
 
 const conn = mongoose.createConnection(MONGO_URI);
 
-export const Characters = conn.model("Characters", characterSchemas);
-export const Films = conn.model("Films", filmSchemas);
-export const Planets = conn.model("Planets", planetSchemas);
+const store = {
+  Characters: conn.model("Characters", characterSchemas),
+  Films: conn.model("Films", filmSchemas),
+  Planets: conn.model("Planets", planetSchemas),
+};
+
+export default store;
