@@ -1,7 +1,6 @@
-import characters from "./characters.json" assert {type: "json"};
-
 export default {
     list: async () => {
-        return characters;
+        const result = await axios.get("http://database:8004/Characters");
+        return result.data
      },
  };

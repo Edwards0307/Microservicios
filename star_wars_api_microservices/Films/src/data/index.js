@@ -1,7 +1,6 @@
-import films from "./films.json" assert { type: "json" };
-
 export default {
     list: async () => {
-        return films
+        const result = axios.get("http://database:8004/Films");
+        return result.data
     }
 }
